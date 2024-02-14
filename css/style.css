@@ -10,28 +10,62 @@ body {
 
 /** Card **/
 .card {
-    background-color: rgb(46, 41, 41);
     height: 300px;
     width: 300px;
     margin: 0 auto;
+    position: relative;
+    perspective: 1400px;    /* the higher the number, the less effect of 3d */
+    left: 0;
+    transition: all 1s;
 } 
 
     /* Left Card */
 .left-card {
     position: relative;
+    background-color: rgb(46, 41, 41);
+    height: 100%;
+    width: 100%;
+    box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 1;
+
+    transition: transform 1s;
+    transform-style: preserve-3d;   /* give 3d effect */
+    transform-origin: 0 0;  /* transform/flip from the very left instead of the middle */
+}
+
+.left-card .card-front {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    width: 100%;
-    box-shadow: 8px 0px 5px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
 }
 
-.left-card img {
+.left-card .card-front img {
     width: 100%;
     padding: 5px 20px;
-    /* border: 1px solid red; */
+}
+
+.left-card .card-front, .left-card .card-back {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;    /* when it's flipped, it's hidden */
+}
+
+.left-card .card-back {
+    background-color: #f4f4f4;
+    transform: rotateY(180deg);
+}
+
+    /* Open Card */
+.card.open .left-card {
+    transform: rotateY(-180deg)
+}
+
+.card.open {
+    left: 150px;
 }
 
     /* Right Card */
@@ -39,14 +73,21 @@ body {
     height: 100%;
     width: 100%;
     background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     color: rgb(46, 41, 41);
     padding: 30px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
 }
 
 .right-card h3, .xo-text {
     color: crimson;
     font-weight: bold;
 }
-
