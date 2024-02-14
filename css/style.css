@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 100px;
+    background-color: pink;
+}
+
+
+/** Card **/
+.card {
+    background-color: rgb(46, 41, 41);
+    height: 300px;
+    width: 300px;
+    margin: 0 auto;
+} 
+
+    /* Left Card */
+.left-card {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    box-shadow: 8px 0px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.left-card img {
+    width: 100%;
+    padding: 5px 20px;
+    /* border: 1px solid red; */
+}
+
+    /* Right Card */
+.right-card {
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+    color: rgb(46, 41, 41);
+    padding: 30px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.right-card h3, .xo-text {
+    color: crimson;
+    font-weight: bold;
+}
+
